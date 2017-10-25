@@ -1,0 +1,28 @@
+<!-- error message -->
+<% if @photo.errors.present? %>
+  <ul>
+    <% @photo.errors.each do |error, message| %>
+      <li><%= "#{error.capitalize} #{message}" %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<!-- form -->
+<%= form_for @photo do |f| %>
+  <%= f.label :photo_name, "Title" %>
+  <%= f.text_field :photo_name %>
+
+  <%= f.label :date, "Date" %>
+  <%= f.text_field :date %>
+
+  <%= f.label :description, "Description" %>
+  <%= f.text_area :description %>
+
+  <%= f.label :file_location, "File Location" %>
+  <%= f.file_field :file_location %>
+
+  <%= f.label :tag, "Tag" %>
+  <%= f.text_field :tag %>
+
+  <%= f.submit %>
+<% end %>
